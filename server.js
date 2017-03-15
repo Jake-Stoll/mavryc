@@ -24,7 +24,7 @@ const MongoClient = require('mongodb').MongoClient
 
 var db
 
-MongoClient.connect('mongodb://stja1102:jake0201@ds145329.mlab.com:45329/mavryc', (err, database) => {
+MongoClient.connect('mongodb://jake.stoll:mavryc@ds131340.mlab.com:31340/heroku_212w40nv', (err, database) => {
   if (err) return console.log(err)
   db = database
   app.listen(3000, () => {
