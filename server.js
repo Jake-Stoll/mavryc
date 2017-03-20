@@ -32,9 +32,7 @@ app.get('/', (req, res) => {
     db.collection('users').find().toArray((err, result) => {
         if (err) return console.log(err)
         // renders index.ejs
-        for (i = 0; i < result.length; i++) { 
-            res.send(result[i]);
-        }
+        res.send(result[0]);
         console.log("Just sent data")
     })
 })

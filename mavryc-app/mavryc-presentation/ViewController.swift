@@ -196,8 +196,8 @@ class ViewController: UIViewController, MKMapViewDelegate {
         super.viewDidLoad()
         
         //JSON Test
-        let todoEndpoint: String = "http://localhost:3000/"
-        Alamofire.request(todoEndpoint)
+        let serverEndpoint: String = "https://mavryc.herokuapp.com/"
+        Alamofire.request(serverEndpoint)
             .responseJSON { response in
                 // check for errors
                 guard response.result.error == nil else {
