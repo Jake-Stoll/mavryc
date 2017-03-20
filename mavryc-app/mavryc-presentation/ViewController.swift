@@ -8,9 +8,14 @@
 
 import UIKit
 import MapKit
+import Alamofire
+import SwiftyJSON
 
 
 class ViewController: UIViewController, MKMapViewDelegate {
+    
+    //Test Table declaration
+    @IBOutlet weak var dataName: UILabel!
     
     //Mark: Top Selector Section
     
@@ -189,6 +194,36 @@ class ViewController: UIViewController, MKMapViewDelegate {
         
         
         super.viewDidLoad()
+        
+        //JSON Test
+        let todoEndpoint: String = "http://localhost:3000/"
+        Alamofire.request(todoEndpoint)
+            .responseJSON { response in
+                // check for errors
+                guard response.result.error == nil else {
+                    // got an error in getting the data, need to handle it
+                    print("error calling GET")
+                    print(response.result.error!)
+                    return
+                }
+                
+                // make sure we got some JSON since that's what we expect
+                guard (response.result.value as? [String: Any]) != nil else {
+                    print("didn't get todo object as JSON from API")
+                    print("Error: \(response.result.error)")
+                    return
+                }
+                
+                // get and print
+                print(response.result.value!)
+        }
+        
+
+        
+        
+        
+        
+        
         if tripType == "oneway" {
             roundTripBottomView.isHidden = true
         }

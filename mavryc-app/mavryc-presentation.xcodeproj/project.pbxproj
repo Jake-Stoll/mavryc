@@ -13,6 +13,7 @@
 		231903A11E6E18B900359361 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 231903A01E6E18B900359361 /* Assets.xcassets */; };
 		231903A41E6E18B900359361 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 231903A21E6E18B900359361 /* LaunchScreen.storyboard */; };
 		23CAED871E6F0E7B00C87DD3 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23CAED861E6F0E7B00C87DD3 /* MapKit.framework */; };
+		B2D7282705B550867D11FCDF /* Pods_mavryc_presentation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0DB1E29CE04371B4593DE3D /* Pods_mavryc_presentation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,9 @@
 		231903A31E6E18B900359361 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		231903A51E6E18B900359361 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		23CAED861E6F0E7B00C87DD3 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		AB6614719DB1AE7D58BD9F96 /* Pods-mavryc-presentation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mavryc-presentation.debug.xcconfig"; path = "Pods/Target Support Files/Pods-mavryc-presentation/Pods-mavryc-presentation.debug.xcconfig"; sourceTree = "<group>"; };
+		C0DB1E29CE04371B4593DE3D /* Pods_mavryc_presentation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mavryc_presentation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB6B61F5C18C1B779E53BF62 /* Pods-mavryc-presentation.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mavryc-presentation.release.xcconfig"; path = "Pods/Target Support Files/Pods-mavryc-presentation/Pods-mavryc-presentation.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +36,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				23CAED871E6F0E7B00C87DD3 /* MapKit.framework in Frameworks */,
+				B2D7282705B550867D11FCDF /* Pods_mavryc_presentation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +49,7 @@
 				231903981E6E18B900359361 /* mavryc-presentation */,
 				231903971E6E18B900359361 /* Products */,
 				23CAED851E6F0E7B00C87DD3 /* Frameworks */,
+				AC2D2D103402FFE9F65A0E5F /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -72,8 +78,18 @@
 			isa = PBXGroup;
 			children = (
 				23CAED861E6F0E7B00C87DD3 /* MapKit.framework */,
+				C0DB1E29CE04371B4593DE3D /* Pods_mavryc_presentation.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AC2D2D103402FFE9F65A0E5F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AB6614719DB1AE7D58BD9F96 /* Pods-mavryc-presentation.debug.xcconfig */,
+				FB6B61F5C18C1B779E53BF62 /* Pods-mavryc-presentation.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,9 +99,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 231903A81E6E18B900359361 /* Build configuration list for PBXNativeTarget "mavryc-presentation" */;
 			buildPhases = (
+				FDE9D6162B14749B503E8A4E /* [CP] Check Pods Manifest.lock */,
 				231903921E6E18B900359361 /* Sources */,
 				231903931E6E18B900359361 /* Frameworks */,
 				231903941E6E18B900359361 /* Resources */,
+				9B049CF09D3B53A2D64E9D0E /* [CP] Embed Pods Frameworks */,
+				BDA224AA3749E19C996FF420 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -148,6 +167,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9B049CF09D3B53A2D64E9D0E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-mavryc-presentation/Pods-mavryc-presentation-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BDA224AA3749E19C996FF420 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-mavryc-presentation/Pods-mavryc-presentation-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FDE9D6162B14749B503E8A4E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		231903921E6E18B900359361 /* Sources */ = {
@@ -276,6 +343,7 @@
 		};
 		231903A91E6E18B900359361 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AB6614719DB1AE7D58BD9F96 /* Pods-mavryc-presentation.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = NH5J65QW37;
@@ -289,6 +357,7 @@
 		};
 		231903AA1E6E18B900359361 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FB6B61F5C18C1B779E53BF62 /* Pods-mavryc-presentation.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = NH5J65QW37;
