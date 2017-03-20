@@ -33,6 +33,7 @@ app.get('/', (req, res) => {
         if (err) return console.log(err)
         // renders index.ejs
         res.render('index.ejs', {users: result})
+        console.log(result)
     })
 })
 

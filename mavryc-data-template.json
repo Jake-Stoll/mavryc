@@ -1,0 +1,156 @@
+{
+    "children": {
+        "user": {
+            "children": {
+                "info": {
+                    "firstname": {
+                        "type": "string",
+                        "mandatory": true
+                    },
+                    "lastname": {
+                        "type": "string",
+                        "mandatory": true
+                    },
+                    "email": {
+                        "type": "string",
+                        "mandatory": true
+                    },
+                    "password": {
+                        //Bycrpt
+                    },
+                    "phone": {
+                        "type": "string",
+                        "mandatory": true
+                    },
+                    "birthday": {
+                        "type": "string",
+                        "mandatory": true
+                    },
+                    "facebook-token": {
+                        //Facebook token
+                    },
+                    "favorite-routes": {
+                        //Will be a set of flights
+                    }
+                },
+                "settings": {
+                    "notifications": {
+                        "type": "boolean",
+                        "defaultValue": true
+                    },
+                    "freeRideCode": {
+                        "type": "string" //Use rand
+                    }
+                },
+                "flights":{
+                    //Reference section to flights
+
+                },
+                "payment": {
+                    "stripe-token-available": {
+                         "type": "boolean",
+                        "defaultValue": false
+                    },
+                    "stripe-token": {
+                        "type": "string"
+                    }
+
+                }
+            }
+        },
+        "flights": {
+            "children": {
+                "past": {
+                    "type": "boolean",
+                    "defaultValue": false
+                },
+                "flightType": {
+                    "type": "enum",
+                            "options": {
+                                "economy": {
+                                    "childIndex": 0,
+                                    "label": "economy",
+                                    "type": "enum",
+                                    "options": {
+                                        "mid": {
+                                            "childIndex": 0,
+                                            "label": "mid"
+                                        },
+                                        "supermid": {
+                                            "childIndex": 1,
+                                            "label": "supermid"
+                                        },
+                                        "heavy":{
+                                            "childIndex": 2,
+                                            "label": "heavy"
+                                        }
+                                    }
+                                },
+                                "standard": {
+                                    "childIndex": 0,
+                                    "label": "standard",
+                                    "type": "enum",
+                                    "options": {
+                                        "mid": {
+                                            "childIndex": 0,
+                                            "label": "mid"
+                                        },
+                                        "supermid": {
+                                            "childIndex": 1,
+                                            "label": "supermid"
+                                        },
+                                        "heavy":{
+                                            "childIndex": 2,
+                                            "label": "heavy"
+                                        }
+                                    }
+                                },
+                                "premium": {
+                                    "childIndex": 0,
+                                    "label": "premium",
+                                    "type": "enum",
+                                    "options": {
+                                        "mid": {
+                                            "childIndex": 0,
+                                            "label": "mid"
+                                        },
+                                        "supermid": {
+                                            "childIndex": 1,
+                                            "label": "supermid"
+                                        },
+                                        "heavy":{
+                                            "childIndex": 2,
+                                            "label": "heavy"
+                                        }
+                                    }
+                                }
+                    }
+                },
+                "route": {
+                    "origin": {
+                        //Not sure how we want to handle this
+                    },
+                    "destination": {
+                    }
+                },
+                "departureTime": {
+                    "type": "string",
+                    "mandatory": true
+                },
+                "arrivalTime": {
+                    "type": "string",
+                    "mandatory": true
+                },
+                "distance": {
+                    "type": "number",
+                    "mandatory": true
+                },
+                "cost": {
+                    "type": "number",
+                    "mandatory": true
+                }
+
+            }
+        }
+    }
+}
