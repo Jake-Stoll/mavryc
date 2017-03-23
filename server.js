@@ -34,8 +34,22 @@ app.get('/', (req, res) => {
         // renders index.ejs
         res.send(result[0]);
         console.log("Just sent data")
+        db.inventory.deleteOne(result[1])
+        console.log("Deleted User")
+        
     })
 })
+
+app.get('/list', (req, res) => {
+    db.collection('users').find().toArray((err, result) => {
+        if (err) return console.log(err)
+          // renders index.ejs
+          res.render('index.ejs', {users: result})
+         console.log(result)
+
+    })
+})
+
 
 
 //Post Functions
@@ -46,6 +60,15 @@ app.post('/users', (req, res) => {
     if (err) return console.log(err)
 
     console.log('saved to database')
-    res.redirect('/')
+    res.redirect('/list')
   })
 })
+
+//Delete Functions
+/////////////////////////////////////////
+//Function to post new user
+
+
+app.delete('/', function (req, res) {
+  res.send('DELETE request to homepage');
+});
