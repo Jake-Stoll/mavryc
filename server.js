@@ -27,48 +27,76 @@ app.use(bodyParser.urlencoded({extended: true}))
 
 //Get Functions
 /////////////////////////////////////////
-//Function to load homepage
-app.get('/', (req, res) => {
+//Function to Get Users Data
+app.get('/get-user', (req, res) => {
     db.collection('users').find().toArray((err, result) => {
         if (err) return console.log(err)
         // renders index.ejs
         res.send(result[0]);
-        console.log("Just sent data")
-        db.inventory.deleteOne(result[1])
-        console.log("Deleted User")
-        
+        console.log("Just sent data")    
     })
 })
 
-app.get('/list', (req, res) => {
-    db.collection('users').find().toArray((err, result) => {
+//Fuction to get Flight Data
+app.get('/get-flight', (req, res) => {
+    db.collection('flights').find().toArray((err, result) => {
         if (err) return console.log(err)
-          // renders index.ejs
-          res.render('index.ejs', {users: result})
-         console.log(result)
-
+        // renders index.ejs
+        res.send(result[0]);
+        console.log("Just sent data")    
     })
 })
-
-
 
 //Post Functions
 /////////////////////////////////////////
 //Function to post new user
-app.post('/users', (req, res) => {
+app.post('/add-user', (req, res) => {
   db.collection('users').save(req.body, (err, result) => {
     if (err) return console.log(err)
-
     console.log('saved to database')
-    res.redirect('/list')
   })
 })
 
-//Delete Functions
+
+//Functon to post a new flights
+app.post('/add-flight', (req, res) => {
+  db.collection('flights').save(req.body, (err, result) => {
+    if (err) return console.log(err)
+    console.log('saved to database')
+  })
+})
+
+
+
+//Put Functions
 /////////////////////////////////////////
-//Function to post new user
+//Function to edit user data 
+app.put('/edit-user', function (req, res) {
+  var query = { "name" : "Juni" }
+  var change = { "cuisine": "American (New)" }
+  db.collection('users').update(
+    query,
+    {
+      $set: change
+    }
+  )
+})
+
+app.put('/edit-flights', function (req, res) {
+  var query = { "name" : "Juni" }
+  var change = { "cuisine": "American (New)" }
+  db.collection('users').update(
+    query,
+    {
+      $set: change
+    }
+  )
+})
 
 
-app.delete('/', function (req, res) {
-  res.send('DELETE request to homepage');
-});
+
+
+
+//Function to edit flight data
+
+
