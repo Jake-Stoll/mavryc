@@ -12,6 +12,7 @@
 		2319039F1E6E18B900359361 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2319039D1E6E18B900359361 /* Main.storyboard */; };
 		231903A11E6E18B900359361 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 231903A01E6E18B900359361 /* Assets.xcassets */; };
 		231903A41E6E18B900359361 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 231903A21E6E18B900359361 /* LaunchScreen.storyboard */; };
+		23B7578A1E8702CA008C045D /* htttp-alamo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B757891E8702CA008C045D /* htttp-alamo.swift */; };
 		23CAED871E6F0E7B00C87DD3 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23CAED861E6F0E7B00C87DD3 /* MapKit.framework */; };
 		B2D7282705B550867D11FCDF /* Pods_mavryc_presentation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0DB1E29CE04371B4593DE3D /* Pods_mavryc_presentation.framework */; };
 /* End PBXBuildFile section */
@@ -24,6 +25,7 @@
 		231903A01E6E18B900359361 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		231903A31E6E18B900359361 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		231903A51E6E18B900359361 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		23B757891E8702CA008C045D /* htttp-alamo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "htttp-alamo.swift"; sourceTree = "<group>"; };
 		23CAED861E6F0E7B00C87DD3 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		AB6614719DB1AE7D58BD9F96 /* Pods-mavryc-presentation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mavryc-presentation.debug.xcconfig"; path = "Pods/Target Support Files/Pods-mavryc-presentation/Pods-mavryc-presentation.debug.xcconfig"; sourceTree = "<group>"; };
 		C0DB1E29CE04371B4593DE3D /* Pods_mavryc_presentation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mavryc_presentation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -66,6 +68,7 @@
 			children = (
 				231903991E6E18B900359361 /* AppDelegate.swift */,
 				2319039B1E6E18B900359361 /* ViewController.swift */,
+				23B757891E8702CA008C045D /* htttp-alamo.swift */,
 				2319039D1E6E18B900359361 /* Main.storyboard */,
 				231903A01E6E18B900359361 /* Assets.xcassets */,
 				231903A21E6E18B900359361 /* LaunchScreen.storyboard */,
@@ -221,6 +224,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23B7578A1E8702CA008C045D /* htttp-alamo.swift in Sources */,
 				2319039C1E6E18B900359361 /* ViewController.swift in Sources */,
 				2319039A1E6E18B900359361 /* AppDelegate.swift in Sources */,
 			);

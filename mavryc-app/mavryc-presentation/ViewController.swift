@@ -8,11 +8,10 @@
 
 import UIKit
 import MapKit
-import Alamofire
-import SwiftyJSON
 
 
-class ViewController: UIViewController, MKMapViewDelegate {
+
+class ViewController: UIViewController, MKMapViewDelegate{
     
     //Test Table declaration
     @IBOutlet weak var dataName: UILabel!
@@ -194,46 +193,7 @@ class ViewController: UIViewController, MKMapViewDelegate {
         
         
         super.viewDidLoad()
-        
-        //JSON Test
-        
-        //GET Test
-//        let serverEndpoint: String = "https://mavryc.herokuapp.com/"
-//        Alamofire.request(serverEndpoint)
-//            .responseJSON { response in
-//                // check for errors
-//                guard response.result.error == nil else {
-//                    // got an error in getting the data, need to handle it
-//                    print("error calling GET")
-//                    print(response.result.error!)
-//                    return
-//                }
-//                
-//                // make sure we got some JSON since that's what we expect
-//                guard (response.result.value as? [String: Any]) != nil else {
-//                    print("didn't get todo object as JSON from API")
-//                    print("Error: \(response.result.error)")
-//                    return
-//                }
-//                
-//                // get and print
-//                print(response.result.value!)
-//        }
-        
-        //POST TEST
-//        let parameters: Parameters = [
-//            "firstName": "IOS",
-//            "lastName": "APP"
-//        ]
-//        
-//        let postRequest = Alamofire.request("http://localhost:3000/users", method: .post, parameters: parameters)
-//        print(postRequest)
-//        
-
-        //Put Request
-        
-        
-        
+    
         
         
         
