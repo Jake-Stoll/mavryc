@@ -3,6 +3,11 @@ import Swift
 import Alamofire
 import SwiftyJSON
 
+// I like that you're utilzing Alamofire and you've got SwiftyJSON here as it comes in handy saving us from writing a bunch of JSON parsing boilerplate
+
+// And I like that you've separated off into a separate class for your server calls here.
+
+// We'll be creating an API or Network Class and some support classes that will make working with the APIs clear, robust, and convenient. We'll have classes that represent the data expected/required by each API call, and also classes to representing what is returned by each call, including convenience methods for generating payloads and also for parsing responses into the aforementioned response objects. We'll also be implement support for error handling in these classes too.
 
 //Function to create a Flight
 func CreateFlight(past: Bool, departureTime: String, arrivalTime: String, distance: Int, cost: Int, origin: String, destination: String) {
