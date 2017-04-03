@@ -3,13 +3,18 @@
 //  mavryc-presentation
 //
 //  Created by Jake on 3/6/17.
+
+// FEEDBACK:TSH: We'll want to add the proper copyright to our xcode project; fortunately, xcode will do this automatically for us when we create the new project and input the organization name. If we wanted to fix this manually we could edit the organization name in the Xcode project navigator (left hand pane, left-most tab), when the project is selected.
+
 //  Copyright © 2017 Jake. All rights reserved.
 //
 
 import UIKit
 import MapKit
 
+// FEEDBACK:TSH: I recognize this is a prototype and the structure is likely more thrown together to function than anything else. What we'll strive for is a separation of concerns with our code. We'll strive to keep our view controllers as slim as possible and move out individual concerns into separate classes. We'll also strive to be very conscious about our naming. An example of separation of concerns is the map related work. For example, this view controller would usually know very little about the map code or components.
 
+// FEEDBACK:TSH: The only feedback I'll give on the UI I'll give right here. We'll utilize constraints to allow items to expand/contract depending on the screen size. We'll likely make use of an AppCoordinator that will help us manage what part of the app to start in or show (basically, which storyboard to begin with). We'll utilize as many vector assets as possible to avoid graphical artifacts that come from expanding raster images.
 
 class ViewController: UIViewController, MKMapViewDelegate{
     
@@ -68,6 +73,7 @@ class ViewController: UIViewController, MKMapViewDelegate{
     
     //Button Action Declarations
     @IBAction func rightTopButton(_ sender: Any) {
+        // FEEDBACK:TSH: anywhere we see literal strings here in the actual project we'll make use of both enums and other mechanisms to abstract it a little. We might have objects that represent the data/characteristics of the buttons here such as title strings, colors, properties, etc... so that the view controller doesn't have to manage this, but the buttons themselves may do so. So this code could exist in a button subclass, for example, and there would potentially be a delegate here in this class so that if the button could call the delegate, and this class might provide the implementation of that delegate method, which would allow the button to get information and set up its properties appropriately, without having this view controller concerned at all with those propoerties.
         if rightUpperLabelButton.currentTitle == "PREMIUM" {
             rightUpperLabelButton.setTitle(" ", for: .normal)
             leftUpperLabelButton.setTitle("ECONOMY", for: .normal)
@@ -97,7 +103,7 @@ class ViewController: UIViewController, MKMapViewDelegate{
             rightBottomTextButton.setTitle("S Heavy", for: .normal)
             rightUpperLabelButton.setTitle("ECONOMY", for: .normal)
             leftUpperLabelButton.setTitle(" ", for: .normal)
-            selectionType = "Standard"
+            selectionType = "Standard" // rather than having this as a string, enums are especially awesome in swift and we'll want to take advantage of them here and a lot more places too.
         }
         if leftUpperLabelButton.currentTitle == "ECONOMY" {
             centerLabel.text = "ECONOMY"
@@ -148,8 +154,8 @@ class ViewController: UIViewController, MKMapViewDelegate{
     
     @IBAction func oneWayClicked(_ sender: Any) {
         if tripType != "oneway" {
-            tripType = "oneway"
-            roundTripButton.setTitleColor(UIColor(red: (24/255.0), green: (77/255.0), blue: (147/255.0), alpha: 1.0), for: .normal)
+            tripType = "oneway" // great use for enums
+            roundTripButton.setTitleColor(UIColor(red: (24/255.0), green: (77/255.0), blue: (147/255.0), alpha: 1.0), for: .normal) // the colors and style properties we'll move into an AppStyle class so the place that the color is assigned, such as here or in the button's class could simply call something like self.setTitleColor = AppStyle.oneWayButtonColorTitleColor - This will allow for much safer alterations to style elements without changes all over the place
             roundTripButton.backgroundColor = UIColor.white
             oneWayButton.setTitleColor(UIColor.white, for: .normal)
             oneWayButton.backgroundColor = UIColor(red: (24/255.0), green: (77/255.0), blue: (147/255.0), alpha: 1.0)
@@ -185,18 +191,18 @@ class ViewController: UIViewController, MKMapViewDelegate{
     override func viewDidLoad() {
         
         // Button border radius
-        roundTripButton.layer.cornerRadius = 4
+        roundTripButton.layer.cornerRadius = 4 // property settings like this can also be done up at the property declaration inside of {}s to allow for more direct setup of visual elements at the site of the object itself rather than in viewDidLoad. Ideally however this stuff can be done in the view level in the awakeFromNib method rather than the view controller level of scope, but it can really go either way.
         oneWayButton.layer.cornerRadius = 4
         tripButtonWrap.layer.cornerRadius = 4
         flyButton.layer.cornerRadius = 20
         planeTypeMinimizedWrap.layer.cornerRadius = 4
         
-        
+
         super.viewDidLoad()
     
         
         
-        
+        // again, here tripType would be way better as an enum
         if tripType == "oneway" {
             roundTripBottomView.isHidden = true
         }
@@ -207,7 +213,7 @@ class ViewController: UIViewController, MKMapViewDelegate{
         planeTypeMinimizedWrap.isHidden = true
         
         // 1.
-         mapView.delegate = self
+        mapView.delegate = self
         
         // 2.
         let sourceLocation = CLLocationCoordinate2D(latitude: 33.501324, longitude: -111.925278)
@@ -229,7 +235,7 @@ class ViewController: UIViewController, MKMapViewDelegate{
             sourceAnnotation.coordinate = location.coordinate
         }
         
-        
+        // A lot of this map stuff should be moved into another class to allow this view controller to be as thin as possible to avoid unneeded coupling.
         let destinationAnnotation = MKPointAnnotation()
         destinationAnnotation.title = "Nashville, TN"
         
