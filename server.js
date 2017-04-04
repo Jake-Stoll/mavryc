@@ -27,6 +27,15 @@ app.use(bodyParser.urlencoded({extended: true}))
 
 //Get Functions
 /////////////////////////////////////////
+//Function to Get EJS Page to add new Users
+app.get('/create-user-page', (req, res) => {
+  res.render('submit-user.ejs')
+})
+//Function to Get EJS Page to add new FLights
+app.get('/create-flight-page', (req, res) => {
+  res.render('submit-flight.ejs')
+})
+
 //Function to Get Users Data
 app.get('/get-user', (req, res) => {
     db.collection('users').find().toArray((err, result) => {

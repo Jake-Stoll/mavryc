@@ -1,0 +1,53 @@
+//User Sample Data
+
+{
+    "info":{
+        "firstname": "Jake",
+        "lastname": "Stoll",
+        "email": "jake.r.stoll@outlook.com",
+        "password": "password",
+        "phone": 4804591338,
+        "birthday": "1993-02-01T00:00:00+00:00",
+        "favoriteroutes": [
+            {
+                "origin": "Phoenix, AZ",
+                "destination": "San Diego, CA"
+            },
+             {
+                "origin": "Phoenix, AZ",
+                "destination": "San Fransisco, CA"
+            },
+             {
+                "origin": "Phoenix, AZ",
+                "destination": "New York City, NY"
+            }
+        ]
+    },
+    "settings": {
+        "notification": true
+    },
+    "flights": {
+        //Not Sure how to reference flight by Id generated from Mongo for flight object?
+        
+
+    },
+    "payments": {
+
+    }
+}
+
+
+
+//Sample Flight Data
+{
+    "past": false,
+    //Not sure how to represent Flight type
+    "route": {
+        "origin": "Phoenix, AZ",
+        "destination": "Tucson, AZ"
+    },
+    "departuretime": "2017-05-01T08:45:00+00:00",
+    "arrivaTime": "2017-05-01T09:45:00+00:00",
+    "distance": 120,
+    "cost": 1800
+}
