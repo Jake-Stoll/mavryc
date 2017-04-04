@@ -35,6 +35,18 @@ app.get('/create-user-page', (req, res) => {
 app.get('/create-flight-page', (req, res) => {
   res.render('submit-flight.ejs')
 })
+//Function to get EJS Page to search for user
+app.get('/search', (req, res) => {
+  res.render('search.ejs')
+})
+//Function to get EJS Page to delete for user
+app.get('/delete-user', (req, res) => {
+  res.render('delete-user.ejs')
+})
+//Function to get EJS Page to Update User 
+app.get('/update-user', (req, res) => {
+  res.render('update-user.ejs')
+})
 
 //Function to Get Users Data
 app.get('/get-user', (req, res) => {
@@ -45,6 +57,8 @@ app.get('/get-user', (req, res) => {
         console.log("Just sent data")    
     })
 })
+
+
 
 //Fuction to get Flight Data
 app.get('/get-flight', (req, res) => {
@@ -77,35 +91,37 @@ app.post('/add-flight', (req, res) => {
 
 
 
-//Put Functions
-/////////////////////////////////////////
-//Function to edit user data 
-app.put('/edit-user', function (req, res) {
-  var query = { "name" : "Juni" }
-  var change = { "cuisine": "American (New)" }
-  db.collection('users').update(
-    query,
-    {
-      $set: change
-    }
-  )
+
+//Function to find Individual User
+app.post('/find-user', (req, res) => {
+    var email = req.body
+    email = email.email
+    console.log(email)
+    db.collection('users').find({"email": email}).toArray((err, result) => {
+        if (err) return console.log(err)
+        var result = res.send(result);
+        console.log(result)
+    })
 })
 
-app.put('/edit-flights', function (req, res) {
-  var query = { "name" : "Juni" }
-  var change = { "cuisine": "American (New)" }
-  db.collection('users').update(
-    query,
-    {
-      $set: change
-    }
-  )
+//Function to Delete Individual User
+app.post('/delete-user', (req, res) => {
+    var email = req.body
+    email = email.email
+    console.log(email)
+    db.collection('users').remove({"email": email})
+    console.log("User Deleted")
 })
 
-
-
-
-
-//Function to edit flight data
-
-
+//Function Search for User and Update
+app.post('/find-user', (req, res) => {
+    var email = req.body
+    email = email.email
+    console.log(email)
+    db.collection('users').find({"email": email}).toArray((err, result) => {
+        if (err) return console.log(err)
+        var result = res.send(result);
+        console.log(result)
+    })
+    
+})

@@ -1,6 +1,6 @@
 //User Sample Data
-
-{
+db.users.insert(
+  {
     "info":{
         "firstname": "Jake",
         "lastname": "Stoll",
@@ -34,20 +34,25 @@
     "payments": {
 
     }
-}
+} 
+)
+
 
 
 
 //Sample Flight Data
-{
-    "past": false,
-    //Not sure how to represent Flight type
-    "route": {
-        "origin": "Phoenix, AZ",
-        "destination": "Tucson, AZ"
-    },
-    "departuretime": "2017-05-01T08:45:00+00:00",
-    "arrivaTime": "2017-05-01T09:45:00+00:00",
-    "distance": 120,
-    "cost": 1800
-}
+
+db.flights.insert(
+    {
+        "past": false,
+        //Not sure how to represent Flight type
+        "route": {
+            "origin": "Phoenix, AZ",
+            "destination": "Tucson, AZ"
+        },
+        "departuretime": "2017-05-01T08:45:00+00:00",
+        "arrivaTime": "2017-05-01T09:45:00+00:00",
+        "distance": 120,
+        "cost": 1800
+    }
+)
