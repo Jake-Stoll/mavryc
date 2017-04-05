@@ -56,3 +56,37 @@ db.flights.insert(
         "cost": 1800
     }
 )
+
+
+//Sample Flight Cities
+
+[
+    {
+        "city": "Phoenix",
+        "state": "AZ",
+        "airport-name": "Sky Harbor International Airport",
+        "airport-code": "PHX",
+        "coordinates": "33.4373° N, 112.0078° W"
+    },
+    {
+        "city": "Tucson",
+        "state": "AZ",
+        "airport-name": "Tucson International Airport",
+        "airport-code": "TUS",
+        "coordinates": "32.1145° N, 110.9392° W"
+    }
+    {
+        "city": "Mesa",
+        "state": "AZ",
+        "airport-name": "Phoenix–Mesa Gateway Airport",
+        "airport-code": "AZA",
+        "coordinates": "33.3087° N, 111.6578° W"
+    }
+    {
+        "city": "Mesa",
+        "state": "AZ",
+        "airport-name": "Falcon Field",
+        "airport-code": "MSC",
+        "coordinates": "33.4574° N, 111.7274° W"
+    }
+]

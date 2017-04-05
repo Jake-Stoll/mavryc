@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mavryc Technologies API</title>
+</head>
+<body>
+    <form action="/find-flight-origin" method="POST">
+        Search for a flight by Origin City:
+        <input type="text" placeholder="Origin City" name="origin">
+        <button type="submit">Search</button>
+    </form>
+    <p>or</p>
+    <form action="/find-flight-destination" method="POST">
+        Search for a flight by Destination City:
+        <input type="text" placeholder="Destination City" name="destination">
+        <button type="submit">Search</button>
+    </form>
+    <p>or</p>
+     <form action="/find-flight-price" method="POST">
+        Search for a flight by Cost:
+        <input type="number" placeholder="Min" name="min">
+        <input type="number" placeholder="Max" name="max">
+        <button type="submit">Search</button>
+    </form>
+ 
+</body>
+</html>
