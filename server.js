@@ -1,6 +1,8 @@
 const express = require('express')
 const bodyParser= require('body-parser')
 const app = express()
+const passport = require('passport')
+const LocalStrategy = require('passport-local').Strategy
 const MongoClient = require('mongodb').MongoClient
 
 //Use EJS
@@ -54,6 +56,10 @@ app.get('/search-flights', (req, res) => {
 app.get('/flights', (req, res) => {
   res.render('flight-search.ejs')
 })
+//Functon to get EJS page to login
+app.get('/login', (req, res) => {
+  res.render('login.ejs')
+})
 
 
 
@@ -89,6 +95,14 @@ app.post('/add-user', (req, res) => {
     if (err) return console.log(err)
     console.log('saved to database')
   })
+  var email = req.body
+    email = email.email
+    console.log(email)
+    db.collection('users').find({"email": email}).toArray((err, result) => {
+        if (err) return console.log(err)
+        var result = res.send(result);
+        console.log(result)
+    })
 })
 //Functon to post a new flights
 app.post('/add-flight', (req, res) => {
@@ -221,6 +235,44 @@ app.post('/flight-search', (req, res) => {
      if(origin == '' & destination == ''){
          console.log("Search for Flight by Destination and Origin")
      }
+})
+
+
+
+
+app.post('/login', (req, res) => {
+    var email = req.body.email
+    var pass = req.body.password
+    // passport/login.js
+    passport.use('login', new LocalStrategy({
+        passReqToCallback : true
+    },
+    function(req, username, password, done) { 
+        // check in mongo if a user with username exists or not
+        User.findOne({ 'email' :  email }, 
+        function(err, user) {
+            // In case of any error, return using the done method
+            if (err)
+            return done(err);
+            // Username does not exist, log error & redirect back
+            if (!user){
+            console.log('User Not Found with username '+email);
+            return done(null, false, 
+                    req.flash('message', 'User Not found.'));                 
+            }
+            // User exists but wrong password, log the error 
+            if (!isValidPassword(user, password)){
+            console.log('Invalid Password');
+            return done(null, false, 
+                req.flash('message', 'Invalid Password'));
+            }
+            // User and password both match, return user from 
+            // done method which will be treated like success
+            return done(null, user);
+        }
+        );
+    }));
+    
 })
 
 
