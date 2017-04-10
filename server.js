@@ -1,7 +1,7 @@
 // server.js
 
 // set up ======================================================================
-// get all the tools we need
+// get all the cool tools we need
 var express  = require('express');
 var app      = express();
 var port     = process.env.PORT || 3000;
@@ -19,16 +19,16 @@ var configDB = require('./config/database.js');
 // configuration ===============================================================
 mongoose.connect(configDB.url); // connect to our database
 
-// require('./config/passport')(passport); // pass passport for configuration
+require('./config/passport')(passport); // pass passport for configuration
 
 // set up our express application
 app.use(morgan('dev')); // log every request to the console
-app.use(cookieParser()); // read cookies (needed for auth)
+app.use(cookieParser()); // read cookies (needed for auth) - I do not think I will keep this
 app.use(bodyParser()); // get information from html forms
 
 app.set('view engine', 'ejs'); // set up ejs for templating
 
-// required for passport
+// required for passport - I need to learn more about IOS Sessions
 app.use(session({ secret: 'ilovescotchscotchyscotchscotch' })); // session secret
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
@@ -39,4 +39,4 @@ require('./app/routes.js')(app, passport); // load our routes and pass in our ap
 
 // launch ======================================================================
 app.listen(port);
-console.log('The magic happens on port ' + port);
+console.log('Everything goes down on port ' + port);
