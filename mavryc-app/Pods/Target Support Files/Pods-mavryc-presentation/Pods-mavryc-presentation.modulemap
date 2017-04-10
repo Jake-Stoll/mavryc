@@ -1,6 +1,0 @@
-framework module Pods_mavryc_presentation {
-  umbrella header "Pods-mavryc-presentation-umbrella.h"
-
-  export *
-  module * { export * }
-}

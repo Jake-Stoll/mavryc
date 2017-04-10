@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mavryc Technologies API</title>
+</head>
+<body>
+
+    <ul class="users">
+        <% for(var i=0; i<users.length; i++) {%>
+            <li class="user">
+            <span><%= users[i].firstName %></span>
+            <span><%= users[i].lastName %></span>
+            </li>
+        <% } %>
+    </ul>
+
+    <form action="/add-user" method="POST">
+        <input type="text" placeholder="First Name" name="firstName">
+        <input type="text" placeholder="Last Name" name="lastName">
+        <input type="password" placeholder="Password" name="password">
+        <input type="text" placeholder="Email" name="email">
+        <input type="date" placeholder="Last Name" name="birthday">
+        <input type="text" placeholder="Last Name" name="lastName">
+        <input type="text" placeholder="Phone" name="phone">
+
+        <button type="submit">Submit</button>
+    </form>
+
+</body>
+</html>
