@@ -6,16 +6,23 @@ var bcrypt   = require('bcrypt-nodejs');
 // define the schema for our user model -- This schema will change after authenticion is complete*******
 var userSchema = mongoose.Schema({
 
-    local            : {
-        email        : String,
-        password     : String,
+    local              : {
+        firstname      : String,
+        lastname       : String,
+        email          : String,
+        password       : String,
+        phone          : Number,
+        birthday       : Date,
+        facebookid     : String,
+        facebooktoken  : String,
     },
-    facebook         : {
-        id           : String,
-        token        : String,
-        email        : String,
-        name         : String
-    }
+    //Am going to try removing this FB object.
+    // facebook         : {
+    //     id           : String,
+    //     token        : String,
+    //     email        : String,
+    //     name         : String
+    // }
 });
 
 // methods ======================
