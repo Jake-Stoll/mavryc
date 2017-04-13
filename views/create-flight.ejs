@@ -1,0 +1,83 @@
+<!-- views/signup.ejs -->
+<!doctype html>
+<html>
+<head>
+    <title>Create a Flight</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> <!-- load bootstrap css -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> <!-- load fontawesome -->
+    <style>
+        body        { padding-top:80px; }
+    </style>
+</head>
+<body>
+<div class="container">
+
+<div class="col-sm-6 col-sm-offset-3">
+
+    <h1>Add Flight</h1>
+
+    
+
+    <!-- LOGIN FORM -->
+    <form action="/process-create-flight" method="post">
+        <div class="form-group">
+            <label>The flight has already took place.</label>
+            <input type="checkbox" class="form-control" name="past">
+        </div>
+        <div class="form-group">
+            <label>Flight Origin City</label>
+            <input type="text" class="form-control" name="flightorigincity">
+        </div>
+        <div class="form-group">
+            <label>Flight Origin State</label>
+            <input type="text" class="form-control" name="flightoriginstate">
+        </div>
+        <div class="form-group">
+            <label>Flight Origin Zipcode</label>
+            <input type="number" class="form-control" name="flightoriginzipcode">
+        </div>
+        <div class="form-group">
+            <label>Flight Origin Airport Code</label>
+            <input type="text" class="form-control" name="flightoriginairportcode">
+        </div>
+         <div class="form-group">
+            <label>Flight Destination City</label>
+            <input type="text" class="form-control" name="flightdestinationcity">
+        </div>
+        <div class="form-group">
+            <label>Flight Destination State</label>
+            <input type="text" class="form-control" name="flightdestinationstate">
+        </div>
+        <div class="form-group">
+            <label>Flight Destination Zipcode</label>
+            <input type="number" class="form-control" name="flightdestinationzipcode">
+        </div>
+        <div class="form-group">
+            <label>Flight Destination Airport Code</label>
+            <input type="text" class="form-control" name="flightdestinationairportcode">
+        </div>
+        <div class="form-group">
+            <label>Flight Distance</label>
+            <input type="number" class="form-control" name="flightdistance">
+        </div>
+        <div class="form-group">
+            <label>Departure Time</label>
+            <input type="time" class="form-control" name="departuretime">
+        </div>
+         <div class="form-group">
+            <label>Arrival Time</label>
+            <input type="time" class="form-control" name="arrivaltime">
+        </div>
+        <div class="form-group">
+            <label>Cost</label>
+            <input type="number" class="form-control" name="cost">
+        </div>
+        <button type="submit" class="btn btn-warning btn-lg">Create Flight</button>
+    </form>
+
+    <hr>
+</div>
+
+</div>
+</body>
+</html>

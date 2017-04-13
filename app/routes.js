@@ -1,4 +1,9 @@
 // app/routes.js
+
+// load up the flight methods
+var FlightMethods = require('../app/app-modules/flights/flight-methods.js');
+
+
 module.exports = function(app, passport) {
 
     // =====================================
@@ -7,6 +12,12 @@ module.exports = function(app, passport) {
     app.get('/', function(req, res) {
         res.render('index.ejs'); // load the index.ejs file
     });
+
+
+    // ==================================================================================================================================
+    // USER FUNCTIONS =============================================================================================
+    // ==================================================================================================================================
+
 
     // =====================================
     // LOGIN ===============================
@@ -83,7 +94,49 @@ module.exports = function(app, passport) {
         res.redirect('/');
     });
 
+
+    // ==================================================================================================================================
+    // FLIGHT FUNCTIONS =============================================================================================
+    // ==================================================================================================================================
+
+    //Show all flights
+    app.get('/show-flight', function(req, res) {
+        // render the page
+        res.render('flights.ejs'); 
+    });
+
+    // show the create flight form
+    app.get('/create-flight', function(req, res) {
+        // render the page
+        res.render('create-flight.ejs'); 
+    });
+
+    // process the Create Flight form
+    app.post('/process-create-flight', function(req, res) {
+       FlightMethods.createFlight(req)
+       res.redirect('/create-flight');
+    });
+
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // route middleware to make sure a user is logged in
 function isLoggedIn(req, res, next) {
