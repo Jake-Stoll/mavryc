@@ -34,10 +34,9 @@ function createFlight(req) {
 }
 
 
-function viewallFlights() {
-    Flight.find({ 'flight.route.origin.city': origin }, function (err, flight) {
+function viewAllFlights() {
+    Flight.find(function (err, flight) {
         if (err) return handleError(err);
-        console.log(flight)
         return flight
     })
 }
@@ -136,6 +135,7 @@ function searchFlights(req) {
 
 module.exports = {
     createFlight:createFlight,
+    viewAllFlights:viewAllFlights,
     searchFlights:searchFlights
 }
 

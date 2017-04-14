@@ -99,9 +99,10 @@ module.exports = function(app, passport) {
     // FLIGHT FUNCTIONS =============================================================================================
     // ==================================================================================================================================
 
-    //Show All Flights Page
+    //Return All Flights
     app.get('/flights', function(req, res) {
-        // render the page
+        // return flights
+        FlightMethods.viewAllFlights()
         res.render('flights.ejs'); 
     });
     //Search flights Page
