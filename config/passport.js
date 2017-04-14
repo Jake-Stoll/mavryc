@@ -160,7 +160,7 @@ module.exports = function(passport) {
                     // set all of the facebook information in our user model
                     newUser.local.email = 
                     newUser.local.facebookid    = profile.id; // set the users facebook id                   
-                    newUser.local.birthday  = profie.birthday // Set the users bday from Facebook Bday
+                    newUser.local.birthday  = profile.birthday // Set the users bday from Facebook Bday
                     newUser.local.facebooktoken = token; // we will save the token that facebook provides to the user                    
                     newUser.local.name  = profile.name.givenName + ' ' + profile.name.familyName; // look at the passport user profile to see how names are returned
                     // newUser.facebook.email = profile.emails.value; // facebook can return multiple emails so we'll take the first
