@@ -99,10 +99,20 @@ module.exports = function(app, passport) {
     // FLIGHT FUNCTIONS =============================================================================================
     // ==================================================================================================================================
 
-    //Show all flights
-    app.get('/show-flight', function(req, res) {
+    //Show All Flights Page
+    app.get('/flights', function(req, res) {
         // render the page
         res.render('flights.ejs'); 
+    });
+    //Search flights Page
+    app.get('/search-flights', function(req, res) {
+        // render the page
+        res.render('search-flights.ejs'); 
+    });
+    //Filter Flight search
+    app.post('/filter-flights', function(req, res) {
+       FlightMethods.searchFlights(req);
+       res.render('flights.ejs'); 
     });
 
     // show the create flight form
