@@ -15,6 +15,7 @@ var userSchema = mongoose.Schema({
         birthday       : Date,
         facebookid     : String,
         facebooktoken  : String,
+        token          : String,
     },
     //Am going to try removing this FB object.
     // facebook         : {

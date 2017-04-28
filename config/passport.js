@@ -3,6 +3,8 @@
 // load all the things we need
 var LocalStrategy   = require('passport-local').Strategy;
 var FacebookStrategy = require('passport-facebook').Strategy;
+var jwt = require('jwt-simple');
+
 
 // load up the user model
 var User            = require('../app/models/user');
@@ -60,6 +62,17 @@ module.exports = function(passport) {
             if (user) {
                 return done(null, false, req.flash('signupMessage', 'That email is already taken.'));
             } else {
+                //Place code here to create a token
+                var payload = { email: email };
+                var secret = 'alwaysflyukko';
+                // encode
+                var token = jwt.encode(payload, secret);
+                console.log(token)
+
+                //Decode
+                // decode
+                var decoded = jwt.decode(token, secret);
+                console.log(decoded); 
 
                 // if there is no user with that email
                 // create the user
@@ -72,12 +85,14 @@ module.exports = function(passport) {
                 newUser.local.password      = newUser.generateHash(password);
                 newUser.local.phone         = req.body.phone;
                 newUser.local.birthday      = req.body.birthday;
+                newUser.local.token         = token
 
                 // save the user
                 newUser.save(function(err) {
                     console.log("About to save")
                     if (err)
                         throw err;
+                    //Return token in return statment
                     return done(null, newUser);
                 });
             }
