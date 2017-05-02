@@ -102,11 +102,19 @@ module.exports = function(app, passport) {
     app.get('/favorite-flights', function(req, res) {
         res.render('favorite-flights.ejs');
     });
-
+    //Get view to add favorite flights
+    app.get('/show-add-favorite-flight', function(req, res) {
+        res.render('add-favorite-flight.ejs');
+    });
     //Retrieve Favorite Flights
     app.post('/get-favorite-flights', function(req, res) {
-       UserMethods.compareTokens(req)
-       console.log("Complete")
+       UserMethods.getFlightFavorites(req)
+    });
+
+    //Add Favorite flight
+    app.post('/add-favorite-flights', function(req, res) {
+       UserMethods.addFlightFavorites(req)
+       console.log("They were added!")
     });
 
 
