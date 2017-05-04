@@ -2,6 +2,8 @@
 
 // load up the flight methods
 var FlightMethods = require('../app/app-modules/flights/flight-methods.js');
+//Load up User methods
+var UserMethods = require('../app/app-modules/user/user-methods.js')
 
 
 module.exports = function(app, passport) {
@@ -92,6 +94,27 @@ module.exports = function(app, passport) {
     app.get('/logout', function(req, res) {
         req.logout();
         res.redirect('/');
+    });
+
+    // =====================================
+    // View Favorite Flights =====================
+    // =====================================    
+    app.get('/favorite-flights', function(req, res) {
+        res.render('favorite-flights.ejs');
+    });
+    //Get view to add favorite flights
+    app.get('/show-add-favorite-flight', function(req, res) {
+        res.render('add-favorite-flight.ejs');
+    });
+    //Retrieve Favorite Flights
+    app.post('/get-favorite-flights', function(req, res) {
+       UserMethods.getFlightFavorites(req)
+    });
+
+    //Add Favorite flight
+    app.post('/add-favorite-flights', function(req, res) {
+       UserMethods.addFlightFavorites(req)
+       console.log("They were added!")
     });
 
 
